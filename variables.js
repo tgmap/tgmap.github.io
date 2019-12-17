@@ -153,3 +153,88 @@ var AWS_Station = new Array();
   AWS_Station[58] = new stationInfo("ic2", "22.303056", "114.160278", "", "", { name_E: "International Commerce Centre", name_UC: "環球貿易廣場", name_SC: "环球贸易广场" }, "225");
 
   AWS_Station[59] = new stationInfo("np", "22.294444", "114.199722", "", "", { name_E: "North Point", name_UC: "北角", name_SC: "北角" }, "0");
+
+  var url;
+  var readings;
+  var wind_array = [];
+  var wind_name = [];
+  var wind_direction = [];
+  var wind_speed = [];
+  var wind_gust = [];
+
+  // Function to keep everything after a string.
+  function getNextPart(str,splitafter) {
+      return str.split(splitafter)[1];
+  }
+
+  function locationParser()
+  {
+    // Uses the cors-anywhere to bypass the Cross-Origin permissions issue.
+    url = "https://cors-anywhere.herokuapp.com/https://www.weather.gov.hk/en/wxinfo/ts/tsarchive/wxinfo_24hrs.shtml";
+
+    $.get(url, function(response)
+      {
+        // Turns the received source code into a string.
+        readings = JSON.stringify(response);
+
+        // Keeps only the part of the string we are interested in (Wind).
+        var firstvariable = '10-Minute Mean Wind';
+        var secondvariable = 'Mean Sea Level Pressure';
+        readings = readings.match(new RegExp(firstvariable + "(.*)" + secondvariable));
+
+        // Turns the string into an array of wind station data.
+        wind_array = readings[0].split("\\n");
+        wind_array = wind_array.splice(0,(wind_array.length-2));
+
+        // Gets the name variable from the array.
+        for (i = 1; i < wind_array.length; i++)
+        {
+          for (z = 0; z < AWS_Station.length; z++)
+          {
+            if (wind_array[i].startsWith(AWS_Station[z].StationName.name_E))
+            {
+              if (AWS_Station[z].StationName.name_E == 'Central')
+              {
+                wind_array[i] = wind_array[i].slice(13,wind_array[i].length);
+                wind_name[i-1] = 'Central Pier';
+              } else {
+                wind_array[i] = wind_array[i].slice(AWS_Station[z].StationName.name_E.length,wind_array[i].length);
+                wind_name[i-1] = AWS_Station[z].StationName.name_E;
+              }
+            }
+          }
+
+          // Gets the wind direction variable from the array.
+          var directions = ['North ','South ','East','West','Northeast','Northwest','Southeast','Southwest','Variable','Calm','N/A'];
+          directions.forEach(function(d)
+          {
+            if (wind_array[i].includes(d) == true)
+            {
+              wind_direction[i-1] = d;
+              wind_array[i] = getNextPart(wind_array[i],d).trim();
+            }
+          });
+
+          // Gets the Wind Speed.
+          var wind_speeds = wind_array[i].split(' ')[0];
+          if (wind_speeds == '')
+          {
+            wind_speed[i-1] = 'N/A';
+          } else
+          {
+            wind_speed[i-1] = wind_speeds;
+          }
+
+          // Gets the Wind Maximum Gust.
+          wind_array[i] = wind_array[i].slice(wind_speed.length,wind_array[i].length).trim();
+          if (wind_array[i] == '')
+          {
+            wind_gust[i-1] = 'N/A';
+          } else
+          {
+            wind_gust[i-1] = wind_array[i];
+          }
+        }
+      }
+      )
+  }
