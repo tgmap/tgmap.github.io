@@ -6,9 +6,11 @@ function loadScript(src, callback)
         script.onload = () => callback()               // Adds the onload, <script src='...' onload='...()'>
   }
 
-  loadScript('variables.js', function() {             // Variables.
-    loadScript('map.js', function() {                 // Load the map.
-        loadScript('heatmap.js', function() {         // Heatmap Layer.
+  loadScript('leaflet-heat.js', function() {             // Heatmap Javascript.
+    loadScript('variables.js', function() {             // Variables.
+      loadScript('map.js', function() {                 // Load the map.
+          loadScript('heatmap.js', function() {         // Heatmap Layer.
+          })
         })
       })
     })
