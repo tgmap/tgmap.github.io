@@ -154,6 +154,10 @@
     var url;
     var readings;
     var wind_array = [];
+    var wind_name = [];
+    var wind_direction = [];
+    var wind_speed = [];
+    var wind_gust = [];
 
     // Function to keep everything after a string.
     function getNextPart(str,splitafter) {
@@ -191,9 +195,11 @@
                 {
                   document.write('Name: Central Pier<br>');
                   wind_array[i] = wind_array[i].slice(13,wind_array[i].length);
+                  wind_name[i-1] = 'Central Pier';
                 } else {
                   document.write('Name: ' + AWS_Station[z].StationName.name_E + '<br>');
                   wind_array[i] = wind_array[i].slice(AWS_Station[z].StationName.name_E.length,wind_array[i].length);
+                  wind_name[i-1] = AWS_Station[z].StationName.name_E;
                 }
               }
             }
@@ -205,18 +211,21 @@
               if (wind_array[i].includes(d) == true)
               {
                 document.write('Direction: ' + d + '<br>');
+                wind_direction[i-1] = d;
                 wind_array[i] = getNextPart(wind_array[i],d).trim();
               }
             });
 
             // Gets the Wind Speed.
-            var wind_speed = wind_array[i].split(' ')[0];
-            if (wind_speed == '')
+            var wind_speeds = wind_array[i].split(' ')[0];
+            if (wind_speeds == '')
             {
               document.write("Wind Speed: N/A<br>");
+              wind_speed[i-1] = 'N/A';
             } else
             {
-              document.write("Wind Speed: " + wind_speed + '<br>')
+              document.write("Wind Speed: " + wind_speeds + '<br>')
+              wind_speed[i-1] = wind_speeds;
             }
 
             // Gets the Wind Maximum Gust.
@@ -224,9 +233,11 @@
             if (wind_array[i] == '')
             {
               document.write("Wind Maximum Gust: N/A<p>");
+              wind_gust[i-1] = 'N/A';
             } else
             {
               document.write("Wind Maximum Gust: " + wind_array[i] + '<p>')
+              wind_gust[i-1] = wind_array[i];
             }
           }
         }
