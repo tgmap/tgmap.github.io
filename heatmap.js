@@ -5,3 +5,6 @@
 
 // Runs the locationParser function that gets the wind data.
   locationParser();
+
+// Runs the Add Wind Stations function.
+  addWindStations();
