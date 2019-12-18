@@ -11,9 +11,7 @@ function loadScript(src, callback)
       loadScript('variables.js', function() {             // Variables.
         loadScript('map.js', function() {                 // Load the map.
             loadScript('heatmap.js', function() {         // Heatmap Layer.
-              loadScript('windStations.js', function() {  // Wind Data Layer.
 
-              })
             })
           })
         })
