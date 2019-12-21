@@ -8,8 +8,8 @@ function loadScript(src, callback)
 
   loadScript('https://d3js.org/d3.v5.min.js', function() {
     loadScript('leaflet-heat.js', function() {             // Heatmap Javascript.
-      loadScript('variables.js', function() {             // Variables.
-        loadScript('map.js', function() {                 // Load the map.
+      loadScript('map.js', function() {             // Variables.
+        loadScript('variables.js', function() {                 // Load the map.
             loadScript('heatmap.js', function() {         // Heatmap Layer.
 
             })

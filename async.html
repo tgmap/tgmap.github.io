@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+	<title>Quick Start - Leaflet</title>
+
+	<meta charset="utf-8" />
+
+</head>
+<body>
+<script>
+  async function f() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done!"), 1000)
+  });
+
+  let result = await promise; // wait until the promise resolves (*)
+
+  alert(result); // "done!"
+}
+
+f();
+  async function f() {
+    for(i=0;i < 10000; i++)
+    {
+      document.write(i);
+    }
+    return 1;
+  }
+
+  f().then(alert); // 1z
+</script>
+</body>
+</html>
