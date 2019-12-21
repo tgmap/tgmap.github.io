@@ -245,6 +245,9 @@ async function weatherAsync() {
       // wait until the promise returns us a value
       await promise;
 
+      // Remove the loading text...
+      $('#loading').text("");
+
       // Add the Weather stations with wind to the map.
       for(i = 0; i < AWS_Station.length; i++)
       {
