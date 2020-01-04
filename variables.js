@@ -172,6 +172,41 @@ function getNextPart(str,splitafter)
   return str.split(splitafter)[1];
 }
 
+var North = L.divIcon({
+  className: 'north'
+})
+var Northeast = L.divIcon({
+  className: 'northeast'
+})
+var East = L.divIcon({
+  className: 'east'
+})
+var Southeast = L.divIcon({
+  className: 'southeast'
+})
+var South = L.divIcon({
+  className: 'south'
+})
+var Southwest = L.divIcon({
+  className: 'southwest'
+})
+var West = L.divIcon({
+  className: 'west'
+})
+var Northwest = L.divIcon({
+  className: 'northwest'
+})
+
+var TestWind = L.divIcon({
+  className: 'leaflet-div-icon'
+})
+
+// Rounds to the nearest number divisible by 5.
+function round5(x)
+{
+    return Math.round(x/5)*5;
+}
+
 async function weatherAsync() {
     // Uses the cors-anywhere to bypass the Cross-Origin permissions issue.
     url = "https://cors-anywhere.herokuapp.com/https://www.weather.gov.hk/en/wxinfo/ts/tsarchive/wxinfo_24hrs.shtml";
@@ -255,7 +290,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)]).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: TestWind}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
