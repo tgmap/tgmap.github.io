@@ -198,7 +198,8 @@ var Northwest = L.divIcon({
 })
 
 var TestWind = L.divIcon({
-  className: 'East'
+  className: 'East',
+  iconSize: [50, 50]
 })
 
 // Rounds to the nearest number divisible by 5.
