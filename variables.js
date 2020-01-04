@@ -198,7 +198,7 @@ var Northwest = L.divIcon({
 })
 
 var TestWind = L.divIcon({
-  className: 'leaflet-div-icon'
+  className: 'east'
 })
 
 // Rounds to the nearest number divisible by 5.
