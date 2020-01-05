@@ -173,8 +173,10 @@ function getNextPart(str,splitafter)
 }
 
 var EastIcon = L.Icon.extend({
-  iconSize: [50, 50],
-  rotationAngle: 90
+  options: {
+    iconSize: [50, 50],
+    rotationAngle: 90
+  }
 });
 
 var Wind_5_East = new EastIcon({iconURL: 'images/wind-5.png'});
