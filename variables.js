@@ -173,10 +173,8 @@ function getNextPart(str,splitafter)
 }
 
 var Wind_5_Icon = L.Icon({
-  options: {
-    iconSize: [50, 50],
-    iconUrl: 'images/wind-5.png'
-  }
+    iconUrl: 'images/wind-5.png',
+    iconSize: [50, 50]
 });
 
 // Rounds to the nearest number divisible by 5.
