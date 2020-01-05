@@ -172,14 +172,12 @@ function getNextPart(str,splitafter)
   return str.split(splitafter)[1];
 }
 
-var Wind_5_Icon = L.Icon.extend({
+var Wind_5_Icon = L.Icon({
   options: {
     iconSize: [50, 50],
     iconUrl: 'images/wind-5.png'
   }
 });
-
-var Wind_5_East = new Wind_5_Icon({rotationAngle: 90});
 
 // Rounds to the nearest number divisible by 5.
 function round5(x)
@@ -270,7 +268,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {iconUrl: 'images/wind-5.png', rotationAngle: 45}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: Wind_5_Icon, rotationAngle: 45}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
