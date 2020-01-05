@@ -172,14 +172,14 @@ function getNextPart(str,splitafter)
   return str.split(splitafter)[1];
 }
 
-var EastIcon = L.Icon.extend({
+var Wind_5_Icon = L.Icon.extend({
   options: {
     iconSize: [50, 50],
-    rotationAngle: 90
+    iconURL: 'images/wind-5.png'
   }
 });
 
-var Wind_5_East = new EastIcon({iconURL: 'images/wind-5.png'});
+var Wind_5_East = new Wind_5_Icon({rotationAngle: 90});
 
 // Rounds to the nearest number divisible by 5.
 function round5(x)
