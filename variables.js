@@ -163,6 +163,7 @@ var readings;
 var wind_array = [];
 var wind_name = [];
 var wind_direction = [];
+var wind_direction_deg = [];
 var wind_speed = [];
 var wind_gust = [];
 
@@ -226,6 +227,24 @@ async function weatherAsync() {
             if (wind_array[i].includes(d) == true)
             {
               wind_direction[i-1] = d;
+              if (d == 'North' || d == 'Variable' || d == 'Calm' || d == 'N/A')
+              {
+                wind_direction_deg[i-1] = 0;
+              } else if (d == 'Northeast') {
+                wind_direction_deg[i-1] = 45;
+              } else if (d == 'East') {
+                wind_direction_deg[i-1] = 90;
+              } else if (d == 'SouthEast') {
+                wind_direction_deg[i-1] = 135;
+              } else if (d == 'South') {
+                wind_direction_deg[i-1] = 180;
+              } else if (d == 'Southwest') {
+                wind_direction_deg[i-1] = 225;
+              } else if (d == 'West') {
+                wind_direction_deg[i-1] = 270;
+              } else if (d == 'Northwest') {
+                wind_direction_deg[i-1] = 315;
+              }
               wind_array[i] = getNextPart(wind_array[i],d).trim();
             }
           });
@@ -266,7 +285,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: Wind_5_Icon, rotationAngle: 45}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: Wind_5_Icon, rotationAngle: wind_direction_deg[i]}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
