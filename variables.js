@@ -311,7 +311,7 @@ async function weatherAsync() {
                 wind_direction_deg[i-1] = 45;
               } else if (d == 'East') {
                 wind_direction_deg[i-1] = 90;
-              } else if (d == 'SouthEast') {
+              } else if (d == 'Southeast') {
                 wind_direction_deg[i-1] = 135;
               } else if (d == 'South') {
                 wind_direction_deg[i-1] = 180;
