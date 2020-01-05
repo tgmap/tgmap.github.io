@@ -172,36 +172,12 @@ function getNextPart(str,splitafter)
   return str.split(splitafter)[1];
 }
 
-var North = L.divIcon({
-  className: 'north'
-})
-var Northeast = L.divIcon({
-  className: 'northeast'
-})
-var East = L.divIcon({
-  className: 'east'
-})
-var Southeast = L.divIcon({
-  className: 'southeast'
-})
-var South = L.divIcon({
-  className: 'south'
-})
-var Southwest = L.divIcon({
-  className: 'southwest'
-})
-var West = L.divIcon({
-  className: 'west'
-})
-var Northwest = L.divIcon({
-  className: 'northwest'
-})
-
-var TestWind = L.divIcon({
-  className: 'East',
+var EastIcon = L.Icon.extend({
   iconSize: [50, 50],
   rotationAngle: 90
-})
+});
+
+var Wind_5_East = new EastIcon({iconURL: 'images/wind-5.png'});
 
 // Rounds to the nearest number divisible by 5.
 function round5(x)
@@ -292,7 +268,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: TestWind}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: Wind_5_East}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
