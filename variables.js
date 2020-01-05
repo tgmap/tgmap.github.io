@@ -166,7 +166,7 @@ var wind_direction = [];
 var wind_direction_deg = [];
 var wind_speed = [];
 var wind_gust = [];
-// var wind_icon = [];
+var wind_icon = [];
 
 // Function to keep everything after a string.
 function getNextPart(str,splitafter)
@@ -174,8 +174,84 @@ function getNextPart(str,splitafter)
   return str.split(splitafter)[1];
 }
 
+var Wind_Calm_Icon = L.icon({
+    iconUrl: 'images/wind-calm.png',
+    iconSize: [50, 50]
+});
 var Wind_5_Icon = L.icon({
     iconUrl: 'images/wind-5.png',
+    iconSize: [50, 50]
+});
+var Wind_10_Icon = L.icon({
+    iconUrl: 'images/wind-10.png',
+    iconSize: [50, 50]
+});
+var Wind_15_Icon = L.icon({
+    iconUrl: 'images/wind-15.png',
+    iconSize: [50, 50]
+});
+var Wind_20_Icon = L.icon({
+    iconUrl: 'images/wind-20.png',
+    iconSize: [50, 50]
+});
+var Wind_25_Icon = L.icon({
+    iconUrl: 'images/wind-25.png',
+    iconSize: [50, 50]
+});
+var Wind_30_Icon = L.icon({
+    iconUrl: 'images/wind-30.png',
+    iconSize: [50, 50]
+});
+var Wind_35_Icon = L.icon({
+    iconUrl: 'images/wind-35.png',
+    iconSize: [50, 50]
+});
+var Wind_40_Icon = L.icon({
+    iconUrl: 'images/wind-40.png',
+    iconSize: [50, 50]
+});
+var Wind_45_Icon = L.icon({
+    iconUrl: 'images/wind-45.png',
+    iconSize: [50, 50]
+});
+var Wind_50_Icon = L.icon({
+    iconUrl: 'images/wind-50.png',
+    iconSize: [50, 50]
+});
+var Wind_55_Icon = L.icon({
+    iconUrl: 'images/wind-55.png',
+    iconSize: [50, 50]
+});
+var Wind_60_Icon = L.icon({
+    iconUrl: 'images/wind-60.png',
+    iconSize: [50, 50]
+});
+var Wind_65_Icon = L.icon({
+    iconUrl: 'images/wind-65.png',
+    iconSize: [50, 50]
+});
+var Wind_70_Icon = L.icon({
+    iconUrl: 'images/wind-70.png',
+    iconSize: [50, 50]
+});
+var Wind_75_Icon = L.icon({
+    iconUrl: 'images/wind-75.png',
+    iconSize: [50, 50]
+});
+var Wind_80_Icon = L.icon({
+    iconUrl: 'images/wind-80.png',
+    iconSize: [50, 50]
+});
+var Wind_85_Icon = L.icon({
+    iconUrl: 'images/wind-85.png',
+    iconSize: [50, 50]
+});
+var Wind_90_Icon = L.icon({
+    iconUrl: 'images/wind-90.png',
+    iconSize: [50, 50]
+});
+var Wind_100_Icon = L.icon({
+    iconUrl: 'images/wind-100.png',
     iconSize: [50, 50]
 });
 
@@ -255,15 +331,74 @@ async function weatherAsync() {
           if (wind_speeds == '')
           {
             wind_speed[i-1] = 'N/A';
+            wind_icon[i-1] = 'Wind_Calm_Icon';
           } else
           {
             wind_speed[i-1] = wind_speeds;
-            /*
             if (round5(wind_speeds) == 0)
             {
+              wind_icon[i-1] = 'Wind_Calm_Icon';
+            } else if (round5(wind_speeds) == 5)
+            {
               wind_icon[i-1] = 'Wind_5_Icon';
+            } else if (round5(wind_speeds) == 10)
+            {
+              wind_icon[i-1] = 'Wind_10_Icon';
+            } else if (round5(wind_speeds) == 15)
+            {
+              wind_icon[i-1] = 'Wind_15_Icon';
+            } else if (round5(wind_speeds) == 20)
+            {
+              wind_icon[i-1] = 'Wind_20_Icon';
+            } else if (round5(wind_speeds) == 25)
+            {
+              wind_icon[i-1] = 'Wind_25_Icon';
+            } else if (round5(wind_speeds) == 30)
+            {
+              wind_icon[i-1] = 'Wind_30_Icon';
+            } else if (round5(wind_speeds) == 35)
+            {
+              wind_icon[i-1] = 'Wind_35_Icon';
+            } else if (round5(wind_speeds) == 40)
+            {
+              wind_icon[i-1] = 'Wind_40_Icon';
+            } else if (round5(wind_speeds) == 45)
+            {
+              wind_icon[i-1] = 'Wind_45_Icon';
+            } else if (round5(wind_speeds) == 50)
+            {
+              wind_icon[i-1] = 'Wind_50_Icon';
+            } else if (round5(wind_speeds) == 55)
+            {
+              wind_icon[i-1] = 'Wind_55_Icon';
+            } else if (round5(wind_speeds) == 60)
+            {
+              wind_icon[i-1] = 'Wind_60_Icon';
+            } else if (round5(wind_speeds) == 65)
+            {
+              wind_icon[i-1] = 'Wind_65_Icon';
+            } else if (round5(wind_speeds) == 70)
+            {
+              wind_icon[i-1] = 'Wind_70_Icon';
+            } else if (round5(wind_speeds) == 75)
+            {
+              wind_icon[i-1] = 'Wind_75_Icon';
+            } else if (round5(wind_speeds) == 90)
+            {
+              wind_icon[i-1] = 'Wind_80_Icon';
+            } else if (round5(wind_speeds) == 85)
+            {
+              wind_icon[i-1] = 'Wind_85_Icon';
+            } else if (round5(wind_speeds) == 90)
+            {
+              wind_icon[i-1] = 'Wind_90_Icon';
+            } else if (round5(wind_speeds) == 100)
+            {
+              wind_icon[i-1] = 'Wind_100_Icon';
+            } else {
+              wind_icon[i-1] = 'Wind_Calm_Icon';
             }
-            */
+
           }
 
           // Gets the Wind Maximum Gust.
@@ -279,8 +414,6 @@ async function weatherAsync() {
       }
       )
 
-      var wind_icon = 'images/wind-5.png';
-
       // wait until the promise returns us a value
       await promise;
 
@@ -294,7 +427,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {iconUrl: eval(wind_icon), iconSize: [50, 50], rotationAngle: wind_direction_deg[z]}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: eval(wind_icon[z]), rotationAngle: wind_direction_deg[z]}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
