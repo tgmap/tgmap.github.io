@@ -175,7 +175,7 @@ function getNextPart(str,splitafter)
 var Wind_5_Icon = L.Icon.extend({
   options: {
     iconSize: [50, 50],
-    iconURL: 'images/wind-5.png'
+    iconUrl: 'images/wind-5.png'
   }
 });
 
