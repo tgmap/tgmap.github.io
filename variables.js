@@ -176,83 +176,103 @@ function getNextPart(str,splitafter)
 
 var Wind_Calm_Icon = L.icon({
     iconUrl: 'images/wind-calm.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_5_Icon = L.icon({
     iconUrl: 'images/wind-5.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_10_Icon = L.icon({
     iconUrl: 'images/wind-10.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_15_Icon = L.icon({
     iconUrl: 'images/wind-15.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_20_Icon = L.icon({
     iconUrl: 'images/wind-20.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_25_Icon = L.icon({
     iconUrl: 'images/wind-25.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_30_Icon = L.icon({
     iconUrl: 'images/wind-30.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_35_Icon = L.icon({
     iconUrl: 'images/wind-35.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_40_Icon = L.icon({
     iconUrl: 'images/wind-40.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_45_Icon = L.icon({
     iconUrl: 'images/wind-45.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_50_Icon = L.icon({
     iconUrl: 'images/wind-50.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_55_Icon = L.icon({
     iconUrl: 'images/wind-55.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_60_Icon = L.icon({
     iconUrl: 'images/wind-60.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_65_Icon = L.icon({
     iconUrl: 'images/wind-65.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_70_Icon = L.icon({
     iconUrl: 'images/wind-70.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_75_Icon = L.icon({
     iconUrl: 'images/wind-75.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_80_Icon = L.icon({
     iconUrl: 'images/wind-80.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_85_Icon = L.icon({
     iconUrl: 'images/wind-85.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_90_Icon = L.icon({
     iconUrl: 'images/wind-90.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 var Wind_100_Icon = L.icon({
     iconUrl: 'images/wind-100.png',
-    iconSize: [50, 50]
+    iconSize: [50, 50],
+    iconAnchor: [25, 25]
 });
 
 // Rounds to the nearest number divisible by 5.
