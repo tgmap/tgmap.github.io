@@ -272,6 +272,8 @@ async function weatherAsync() {
       }
       )
 
+      var wind_icon = 'Wind_5_Icon';
+
       // wait until the promise returns us a value
       await promise;
 
@@ -285,7 +287,7 @@ async function weatherAsync() {
         {
           if(AWS_Station[i].StationName.name_E == wind_name[z])
           {
-            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: Wind_5_Icon, rotationAngle: wind_direction_deg[z]}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
+            L.marker([parseFloat(AWS_Station[i].latitude),parseFloat(AWS_Station[i].longitude)], {icon: eval(wind_icon), rotationAngle: wind_direction_deg[z]}).addTo(mymap).bindPopup("<b>" + AWS_Station[i].StationName.name_UC + "</b><br>Wind Speed: " + wind_speed[z] + "<br> Wind Direction: " + wind_direction[z]);
           }
         }
       }
