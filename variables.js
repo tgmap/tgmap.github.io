@@ -13,7 +13,7 @@ d3.csv("TG_Jun12toNov18 .csv",function(d){
                 tear_gas_lng.push(parseFloat(d.Lng));
                 tear_gas_tg_count.push(d.Adj_TG_Count);
                 tear_gas_date.push(d.DateUS);
-                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.Adj_TG_Count / 100)]); // lat, lng, intensity
+                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.Adj_TG_Count)]); // lat, lng, intensity
             });
 
 // Function that parses the station information.
