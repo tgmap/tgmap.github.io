@@ -11,9 +11,9 @@ d3.csv("TG_Jun12toNov18-Sigmoid.csv",function(d){
                 tear_gas_mid.push(d.mid);
                 tear_gas_lat.push(parseFloat(d.Lat));
                 tear_gas_lng.push(parseFloat(d.Lng));
-                tear_gas_tg_count.push(d.MaxMin);
+                tear_gas_tg_count.push(d.MaxMin20Sigmoid);
                 tear_gas_date.push(d.DateUS);
-                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.MaxMin)]); // lat, lng, intensity
+                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.MaxMin20Sigmoid)]); // lat, lng, intensity
             });
 
 // Function that parses the station information.
