@@ -7,13 +7,13 @@ var tear_gas_date=[];
 var heat_map_variables=[];
 
 // Loads the CSV data for the heatmap.
-d3.csv("TG_Jun12toNov18 .csv",function(d){
+d3.csv("TG_Jun12toNov18-Sigmoid.csv",function(d){
                 tear_gas_mid.push(d.mid);
                 tear_gas_lat.push(parseFloat(d.Lat));
                 tear_gas_lng.push(parseFloat(d.Lng));
-                tear_gas_tg_count.push(d.Adj_TG_Count);
+                tear_gas_tg_count.push(d.MaxMin);
                 tear_gas_date.push(d.DateUS);
-                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.Adj_TG_Count)]); // lat, lng, intensity
+                heat_map_variables.push([parseFloat(d.Lat),parseFloat(d.Lng),(d.MaxMin)]); // lat, lng, intensity
             });
 
 // Function that parses the station information.
