@@ -451,6 +451,11 @@ async function weatherAsync() {
           }
         }
       }
+
+      // Change zoom to ensure heatmap is loaded and indicate to user the page is loaded.
+      setTimeout(function(){
+        map.setZoom(11);
+    }, 1000);
   }
 
 weatherAsync();
